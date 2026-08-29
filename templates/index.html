@@ -1,1 +1,87 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Tester</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header class="topbar">
+        <div>
+            <h1>API Tester</h1>
+            <p>Test HTTP APIs locally</p>
+        </div>
+
+        <button id="themeButton">🌙</button>
+    </header>
+
+    <main class="container">
+        <section class="request-panel">
+            <div class="request-line">
+                <select id="method">
+                    <option>GET</option>
+                    <option>POST</option>
+                    <option>PUT</option>
+                    <option>PATCH</option>
+                    <option>DELETE</option>
+                    <option>HEAD</option>
+                    <option>OPTIONS</option>
+                </select>
+
+                <input
+                    id="url"
+                    type="url"
+                    placeholder="https://api.example.com/users"
+                >
+
+                <button id="sendButton">Send</button>
+            </div>
+
+            <div class="tabs">
+                <button class="tab active" data-tab="params">Params</button>
+                <button class="tab" data-tab="headers">Headers</button>
+                <button class="tab" data-tab="body">Body</button>
+            </div>
+
+            <div id="params" class="tab-content active">
+                <textarea
+                    id="paramsInput"
+                    placeholder='{"page":"1","limit":"10"}'
+                ></textarea>
+            </div>
+
+            <div id="headers" class="tab-content">
+                <textarea
+                    id="headersInput"
+                    placeholder='{"Authorization":"Bearer token"}'
+                ></textarea>
+            </div>
+
+            <div id="body" class="tab-content">
+                <textarea
+                    id="bodyInput"
+                    placeholder='{"name":"Roshab","email":"example@email.com"}'
+                ></textarea>
+            </div>
+        </section>
+
+        <section class="response-panel">
+            <div class="response-header">
+                <h2>Response</h2>
+                <button id="copyButton">Copy</button>
+            </div>
+
+            <div class="status">
+                <span id="statusCode">Ready</span>
+                <span id="responseTime"></span>
+            </div>
+
+            <pre id="responseOutput">Send a request to see the response.</pre>
+        </section>
+    </main>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
